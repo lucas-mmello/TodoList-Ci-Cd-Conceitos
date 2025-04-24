@@ -1,0 +1,22 @@
+name: CI - Testes
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  test:
+    name: Testes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Executar testes
+        run: npm test
