@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Todo } from "../../services/TodoService";
-
 import "../../css/TodoForm/index.css";
 
 interface TodoFormProps {
@@ -18,39 +17,32 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAdd(todo);
-    cleanForm();
-  };
-
-  const cleanForm = () => {
-    setTodo({
-      title: "",
-      description: "",
-      text: "",
-      completed: false,
-      id: 0,
-    });
+    if (!todo.title.trim()) return; // evita tarefas vazias
+    const newTodo = { ...todo, id: Date.now() };
+    onAdd(newTodo);
+    setTodo({ ...todo, title: "", description: "", text: "" });
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="todo-form">
       <input
         type="text"
-        placeholder="Title"
+        placeholder="Título"
         value={todo.title}
         onChange={(e) => setTodo({ ...todo, title: e.target.value })}
+        required
       />
       <input
         type="text"
-        placeholder="Description"
+        placeholder="Descrição"
         value={todo.description}
         onChange={(e) => setTodo({ ...todo, description: e.target.value })}
       />
-      <input
-        type="text"
-        placeholder="Text"
+      <textarea
+        placeholder="Texto detalhado"
         value={todo.text}
         onChange={(e) => setTodo({ ...todo, text: e.target.value })}
+        rows={3}
       />
       <button type="submit">Criar tarefa</button>
     </form>

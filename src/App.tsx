@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
 import TodoService, { Todo } from "./services/TodoService";
-
+import Logo from "./assets/images/logo.png";
+import "./App.css";
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
 
@@ -33,16 +34,23 @@ function App() {
 
   return (
     <>
-      <div className="app">
+      <main className="app">
+        <img src={Logo} alt="TodoList Logo" className="logo" />
         <h1>Lista de Tarefas</h1>
-        <TodoForm onAdd={handleAddTodo} />
-        <h2 style={{ marginTop: "2rem", textAlign: "center" }}>Tarefas</h2>
-        <TodoList
-          todos={todos}
-          onRemove={handleRemoveTodo}
-          onToggle={handleToggleTodo}
-        />
-      </div>
+
+        <section className="todo-form">
+          <TodoForm onAdd={handleAddTodo} />
+        </section>
+
+        <h2>Tarefas</h2>
+        <section className="todo-list">
+          <TodoList
+            todos={todos}
+            onRemove={handleRemoveTodo}
+            onToggle={handleToggleTodo}
+          />
+        </section>
+      </main>
     </>
   );
 }

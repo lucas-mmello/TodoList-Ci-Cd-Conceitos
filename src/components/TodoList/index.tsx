@@ -1,5 +1,4 @@
 import { Todo } from "../../services/TodoService";
-
 import "../../css/TodoList/index.css";
 
 interface TodoListProps {
@@ -10,22 +9,30 @@ interface TodoListProps {
 
 export default function TodoList({ todos, onRemove, onToggle }: TodoListProps) {
   return (
-    <ul>
+    <ul className="todo-list">
       {todos.map((todo) => (
-        <li key={todo.id}>
-          <span>{todo.title}</span>
+        <li key={todo.id} className="todo-item">
+          <div className="todo-header">
+            <span className="todo-title">{todo.title}</span>
+          </div>
           <div className="checkbox-container">
-            <label htmlFor={todo.id.toString() + todo.title}>Completado</label>
+            <label htmlFor={`todo-${todo.id}`}>Completado</label>
             <input
-              id={todo.id.toString() + todo.title}
+              id={`todo-${todo.id}`}
               type="checkbox"
               checked={todo.completed}
               onChange={() => onToggle(todo.id)}
             />
           </div>
-          <p>Descrição: {todo.description}</p>
-          <p>Texto: {todo.text}</p>
-          <button onClick={() => onRemove(todo.id)}>Remover tarefa</button>
+          <p>
+            <strong>Descrição:</strong> {todo.description}
+          </p>
+          <p>
+            <strong>Texto:</strong> {todo.text}
+          </p>
+          <button onClick={() => onRemove(todo.id)} className="remove-btn">
+            Remover tarefa
+          </button>
         </li>
       ))}
     </ul>
