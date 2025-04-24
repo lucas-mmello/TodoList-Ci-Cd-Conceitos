@@ -1,4 +1,4 @@
-name: CI - Testes
+name: CI/CD - Testes e Deploy
 
 on:
   push:
@@ -8,15 +8,42 @@ on:
 
 jobs:
   test:
-    name: Testes
+    name: Executar Testes
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+
+      - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Instalar dependências
+
+      - name: Instalar dependências
         run: npm install
 
-      - name: Executar testes
+      - name: Rodar testes
         run: npm test
+
+  deploy:
+    name: Deploy no Netlify
+    needs: test # Só roda se o job "test" passar
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Instalar Netlify CLI
+        run: npm install -g netlify-cli
+
+      - name: Fazer deploy
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: netlify deploy --prod --dir=build
