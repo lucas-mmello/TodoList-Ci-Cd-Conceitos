@@ -39,6 +39,9 @@ jobs:
       - name: Instalar dependências
         run: npm install
 
+      - name: Rodar build
+        run: npm build
+
       - name: Instalar Netlify CLI
         run: npm install -g netlify-cli
 
