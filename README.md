@@ -96,7 +96,7 @@ Feito com 💻 por **Lucas Matos de Mello** ✨
 
 ---
 
-# 🇺🇸 TodoList - Frontend App with Tests & CI/CD
+# 📋 TodoList - Frontend App with Tests & CI/CD
 
 This is a **simple frontend TodoList project** built with **React + TypeScript**, using **LocalStorage** as a mock database.  
 It was designed to practice and demonstrate:
