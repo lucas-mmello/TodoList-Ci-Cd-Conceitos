@@ -163,6 +163,16 @@ npm test
 
 ---
 
+## 🧪 Tests
+
+Unit tests are focused on the `TodoService`, including:
+
+- Fetching data from `localStorage`
+- Correctly saving and retrieving tasks
+- Spying on `setItem` with Jest's `spyOn` and mock functions
+
+---
+
 ## 📘 Learnings
 
 Throughout the development of this project, I deepened my understanding of:
@@ -173,16 +183,6 @@ Throughout the development of this project, I deepened my understanding of:
 - 🔄 Building CI/CD pipelines with GitHub Actions
 - 🚀 Deploy automation with Netlify CLI and token authentication
 - 📁 Code organization and separation of responsibilities
-
----
-
-## 🧪 Tests
-
-Unit tests are focused on the `TodoService`, including:
-
-- Fetching data from `localStorage`
-- Correctly saving and retrieving tasks
-- Spying on `setItem` with Jest's `spyOn` and mock functions
 
 ---
 
