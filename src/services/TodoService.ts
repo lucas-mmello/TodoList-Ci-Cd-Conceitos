@@ -4,6 +4,9 @@ export interface Todo {
   description: string;
   text: string;
   completed: boolean;
+  createdAt: string; // ISO string da data de criação
+  updatedAt?: string; // data da última edição (opcional)
+
   // userId: number;
 }
 
@@ -13,11 +16,11 @@ export default class TodoService {
   //   return response.json();
   // }
   static getTodos(): Todo[] {
-    const stored = localStorage.getItem('todos');
+    const stored = localStorage.getItem("todos");
     return stored ? JSON.parse(stored) : [];
   }
 
   static saveTodos(todos: Todo[]) {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(todos));
   }
 }

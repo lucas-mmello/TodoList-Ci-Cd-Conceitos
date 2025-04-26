@@ -44,6 +44,21 @@
   gap: 0.5rem;
 }
 
+.list-input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+.list-input:focus {
+  border-color: #646cff;
+  outline: none;
+}
+
 input[type="checkbox"] {
   transform: scale(1.2);
   cursor: pointer;

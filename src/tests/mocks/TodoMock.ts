@@ -9,6 +9,8 @@ export default class TodoMock {
         description: "Description 1",
         text: "Text 1",
         completed: false,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
       },
       {
         id: 2,
@@ -16,6 +18,7 @@ export default class TodoMock {
         description: "Description 2",
         text: "Text 2",
         completed: true,
+        createdAt: new Date().toISOString(),
       },
     ];
   }

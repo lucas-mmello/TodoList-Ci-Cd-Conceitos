@@ -13,12 +13,17 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
     text: "",
     completed: false,
     id: 0,
+    createdAt: new Date().toISOString(),
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!todo.title.trim()) return; // evita tarefas vazias
-    const newTodo = { ...todo, id: Date.now() };
+    const newTodo = {
+      ...todo,
+      id: Date.now(),
+      createdAt: new Date().toISOString(),
+    };
     onAdd(newTodo);
     setTodo({ ...todo, title: "", description: "", text: "" });
   };
