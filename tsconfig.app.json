@@ -20,7 +20,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+
+    /* TypeScript Setup for Jest */
+    "types": ["jest", "node"]
   },
-  "include": ["src"]
+  "include": ["src", "jest.setup.ts", "tests/**/*.ts", "tests/**/*.tsx"]
 }

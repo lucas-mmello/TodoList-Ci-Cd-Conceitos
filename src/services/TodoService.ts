@@ -1,26 +1,22 @@
+import { ITodoRepository } from "../repositories/ITodoRepository";
+
 export interface Todo {
   id: number;
   title: string;
   description: string;
   text: string;
   completed: boolean;
-  createdAt: string; // ISO string da data de criação
-  updatedAt?: string; // data da última edição (opcional)
-
-  // userId: number;
+  createdAt: string;
+  updatedAt?: string;
 }
 
-export default class TodoService {
-  // async getTodos(): Promise<Todo[]> {
-  //   const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-  //   return response.json();
-  // }
-  static getTodos(): Todo[] {
+export default class TodoService implements ITodoRepository {
+  getTodos(): Todo[] {
     const stored = localStorage.getItem("todos");
     return stored ? JSON.parse(stored) : [];
   }
 
-  static saveTodos(todos: Todo[]) {
+  saveTodos(todos: Todo[]): void {
     localStorage.setItem("todos", JSON.stringify(todos));
   }
 }

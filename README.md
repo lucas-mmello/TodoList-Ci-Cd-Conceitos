@@ -86,6 +86,11 @@ Durante o desenvolvimento deste projeto, aprofundei meus conhecimentos em:
 - 🔄 Integração e entrega contínua com GitHub Actions
 - 🚀 Deploy automatizado com Netlify CLI e autenticação por tokens
 - 📁 Organização de código, separação de responsabilidades e reutilização de componentes
+- ♻️ Refatoração da lógica de tarefas com um hook customizado (useTodos) para maior legibilidade e reutilização
+- 🌗 Implementação de modo escuro com toggle, persistente no localStorage utilizando variáveis CSS (Custom Properties)
+- ✏️ Criação de edição inline de tarefas, com inputs controlados
+- 🔍 Aplicação de filtros dinâmicos (todas, pendentes e concluídas)
+- 🧩 Aplicação do princípio SOLID - Inversão de Dependência, desacoplando o TodoService via interface
 
 ---
 
@@ -183,6 +188,11 @@ Throughout the development of this project, I deepened my understanding of:
 - 🔄 Building CI/CD pipelines with GitHub Actions
 - 🚀 Deploy automation with Netlify CLI and token authentication
 - 📁 Code organization and separation of responsibilities
+- ♻️ Refactoring logic into a custom hook (useTodos) for better reuse and clarity
+- 🌗 Implementing a Dark Mode toggle, persisted in localStorage using CSS Custom Properties
+- ✏️ Creating inline task editing, with controlled input and textarea
+- 🔍 Adding dynamic filtering (All, Pending, Completed)
+- 🧩 Applying the SOLID principles, especially Dependency Inversion, by decoupling the service logic via an interface
 
 ---
 

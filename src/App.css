@@ -1,23 +1,8 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background-color: #f4f6f8;
-  color: #333;
-  display: flex;
-  justify-content: center;
-}
-
 .app {
-  background: #ffffff;
+  background: var(--cor-fundo-app);
   padding: 2rem;
   border-radius: 16px;
   width: 100%;
-  /* max-width: 1000px; */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -30,18 +15,18 @@ body {
 h1 {
   font-size: 2.2rem;
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: var(--cor-texto);
 }
 
 h2 {
   font-size: 1.5rem;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  color: #444;
+  color: var(--cor-texto);
 }
 
 button {
-  background-color: #646cff;
+  background-color: var(--cor-botao);
   color: white;
   padding: 0.6em 1.2em;
   border: none;
@@ -52,7 +37,7 @@ button {
 }
 
 button:hover {
-  background-color: #4b5ac7;
+  background-color: var(--cor-botao-hover);
 }
 
 .todo-form {
@@ -64,21 +49,6 @@ button:hover {
   margin-top: 1rem;
   text-align: left;
 }
-
-/* .todo-item {
-  background: #f9f9f9;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  margin-bottom: 0.75rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.2s;
-}
-
-.todo-item:hover {
-  background: #ececec;
-} */
 
 .filtro-select {
   display: flex;
@@ -94,18 +64,19 @@ button:hover {
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 1rem;
-  /* background-color: #171515; */
   cursor: pointer;
   transition: border-color 0.2s;
+  background-color: var(--cor-fundo-app);
+  color: var(--cor-texto);
 }
 
 .filtro-select select:focus {
-  border-color: #646cff;
+  border-color: var(--cor-botao);
   outline: none;
 }
 
 .contador {
   text-align: center;
   margin-top: 0.75rem;
-  color: #555;
+  color: var(--cor-contador);
 }

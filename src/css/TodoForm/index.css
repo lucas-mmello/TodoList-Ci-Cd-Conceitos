@@ -15,17 +15,19 @@
   font-size: 1rem;
   width: 100%;
   resize: none;
+  background-color: var(--cor-fundo-todo);
+  color: var(--cor-texto);
   transition: border-color 0.3s;
 }
 
 .todo-form input:focus,
 .todo-form textarea:focus {
-  border-color: #646cff;
+  border-color: var(--cor-botao);
   outline: none;
 }
 
 .todo-form button {
-  background-color: #646cff;
+  background-color: var(--cor-botao);
   color: white;
   padding: 0.75rem;
   border: none;
@@ -37,5 +39,5 @@
 }
 
 .todo-form button:hover {
-  background-color: #4b5ac7;
+  background-color: var(--cor-botao-hover);
 }

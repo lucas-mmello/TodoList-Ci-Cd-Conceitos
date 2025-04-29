@@ -1,7 +1,7 @@
 import { Todo } from "../../services/TodoService";
 
 export default class TodoMock {
-  static getTodos(): Todo[] {
+  getTodos(): Todo[] {
     return [
       {
         id: 1,

@@ -1,59 +1,36 @@
-import { useState, useEffect } from "react";
 import TodoForm from "./components/TodoForm";
 import TodoList from "./components/TodoList";
-import TodoService, { Todo } from "./services/TodoService";
 import Logo from "./assets/images/logo.png";
 import "./App.css";
+import useTodos from "./hooks/useTodos";
+import ThemeSwitch from "./components/ThemeSwitch";
 
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [filtro, setFiltro] = useState<"todas" | "pendentes" | "concluidas">(
-    "todas"
-  );
+  const {
+    addTodo,
+    removeTodo,
+    editTodo,
+    filtrarTarefas,
+    pendentes,
+    concluidas,
+    filtro,
+    setFiltro,
+  } = useTodos();
 
-  useEffect(() => {
-    const todos = TodoService.getTodos();
-    setTodos(todos);
-  }, []);
+  const siteName = import.meta.env.VITE_SITE_NAME || "TodoList";
+  const environment = import.meta.env.VITE_ENVIRONMENT || "development";
 
-  useEffect(() => {
-    TodoService.saveTodos(todos);
-  }, [todos]);
-
-  const handleAddTodo = (todo: Todo) => {
-    setTodos([...todos, todo]);
-  };
-
-  const handleRemoveTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
-
-  const handleEditTodo = (todoEditado: Todo) => {
-    setTodos(
-      todos.map((t) =>
-        t.id === todoEditado.id
-          ? { ...todoEditado, updatedAt: new Date().toISOString() }
-          : t
-      )
-    );
-  };
-
-  const filtrarTarefas = () => {
-    if (filtro === "pendentes") return todos.filter((todo) => !todo.completed);
-    if (filtro === "concluidas") return todos.filter((todo) => todo.completed);
-    return todos;
-  };
-
-  const pendentes = todos.filter((todo) => !todo.completed).length;
-  const concluidas = todos.filter((todo) => todo.completed).length;
+  console.log(`Rodando no site: ${siteName}`);
+  console.log(`Rodando no ambiente: ${environment}`);
 
   return (
     <main className="app">
       <img src={Logo} alt="TodoList Logo" className="logo" />
+      <ThemeSwitch />
       <h1>Lista de Tarefas</h1>
 
       <section className="todo-form">
-        <TodoForm onAdd={handleAddTodo} />
+        <TodoForm onAdd={addTodo} />
       </section>
       <h2>Tarefas</h2>
 
@@ -79,8 +56,8 @@ function App() {
       <section className="todo-list">
         <TodoList
           todos={filtrarTarefas()}
-          onRemove={handleRemoveTodo}
-          onEdit={handleEditTodo}
+          onRemove={removeTodo}
+          onEdit={editTodo}
         />
       </section>
     </main>
