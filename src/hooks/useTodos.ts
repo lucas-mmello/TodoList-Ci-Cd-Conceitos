@@ -39,7 +39,7 @@ export default function useTodos(
   };
 
   const filtrosDisponiveis = {
-    todas: (todo: Todo) => true,
+    todas: (_todo: Todo) => true,
     pendentes: (todo: Todo) => !todo.completed,
     concluidas: (todo: Todo) => todo.completed,
   };
