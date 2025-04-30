@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Todo } from "../services/TodoService";
 import TodoService from "../services/TodoService";
 import { ITodoRepository } from "../repositories/ITodoRepository";
+import { preencherTodosSeNecessario } from "../utils/preencherTodosSeNecessario";
 
 type Filtro = "todas" | "pendentes" | "concluidas";
 
@@ -10,7 +11,8 @@ export default function useTodos(
 ) {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [filtro, setFiltro] = useState<Filtro>("todas");
-
+  const habilitado: "true" | "false" = import.meta.env?.VITE_ENABLE_FAKE_TODOS;
+  const minimo: number = Number(import.meta.env?.VITE_MINIMO_TAREFAS);
   useEffect(() => {
     const todosSalvos = repository.getTodos();
     setTodos(todosSalvos);
@@ -20,11 +22,18 @@ export default function useTodos(
     repository.saveTodos(todos);
   }, [todos]);
 
+  useEffect(() => {
+    const todos = preencherTodosSeNecessario({ minimo, habilitado });
+    if (todos.length > 0) {
+      setTodos(todos);
+    }
+  }, []);
+
   const addTodo = (todo: Todo) => {
     setTodos([...todos, todo]);
   };
 
-  const removeTodo = (id: number) => {
+  const removeTodo = (id: string) => {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 

@@ -1,13 +1,14 @@
 import { ITodoRepository } from "../repositories/ITodoRepository";
 
 export interface Todo {
-  id: number;
+  id: string; // era number
   title: string;
   description: string;
   text: string;
   completed: boolean;
   createdAt: string;
   updatedAt?: string;
+  idApi?: number;
 }
 
 export default class TodoService implements ITodoRepository {

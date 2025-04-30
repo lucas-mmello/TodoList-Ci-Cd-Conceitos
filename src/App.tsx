@@ -4,6 +4,7 @@ import Logo from "./assets/images/logo.png";
 import "./App.css";
 import useTodos from "./hooks/useTodos";
 import ThemeSwitch from "./components/ThemeSwitch";
+import TodoApiService from "./services/TodoApiService";
 
 function App() {
   const {
@@ -23,6 +24,11 @@ function App() {
   console.log(`Rodando no site: ${siteName}`);
   console.log(`Rodando no ambiente: ${environment}`);
 
+  const importarDaApi = async () => {
+    const novos = await TodoApiService.fetchTodos(3);
+    novos.forEach((todo) => addTodo(todo));
+  };
+
   return (
     <main className="app">
       <img src={Logo} alt="TodoList Logo" className="logo" />
@@ -33,7 +39,9 @@ function App() {
         <TodoForm onAdd={addTodo} />
       </section>
       <h2>Tarefas</h2>
-
+      <button onClick={importarDaApi} style={{ marginTop: "1rem" }}>
+        Importar tarefas da API externa
+      </button>
       <div className="filtro-select">
         <label htmlFor="filtro">Filtrar:</label>
         <select

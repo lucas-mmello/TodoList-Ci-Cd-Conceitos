@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 
 interface TodoListProps {
   todos: Todo[];
-  onRemove: (id: number) => void;
+  onRemove: (id: string) => void;
   onEdit?: (todo: Todo) => void; // opcional para casos futuros
 }
 
 export default function TodoList({ todos, onRemove, onEdit }: TodoListProps) {
-  const [editandoId, setEditandoId] = useState<number | null>(null);
+  const [editandoId, setEditandoId] = useState<string | null>(null);
   const [editTodo, setEditTodo] = useState<Partial<Todo>>({});
 
   const handleEditar = (todo: Todo) => {

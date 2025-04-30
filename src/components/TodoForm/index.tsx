@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Todo } from "../../services/TodoService";
 import "../../css/TodoForm/index.css";
+import { v4 as uuidv4 } from "uuid";
 
 interface TodoFormProps {
   onAdd: (todo: Todo) => void;
@@ -12,7 +13,7 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
     description: "",
     text: "",
     completed: false,
-    id: 0,
+    id: "",
     createdAt: new Date().toISOString(),
   });
 
@@ -21,11 +22,11 @@ export default function TodoForm({ onAdd }: TodoFormProps) {
     if (!todo.title.trim()) return; // evita tarefas vazias
     const newTodo = {
       ...todo,
-      id: Date.now(),
+      id: uuidv4(),
       createdAt: new Date().toISOString(),
     };
     onAdd(newTodo);
-    setTodo({ ...todo, title: "", description: "", text: "" });
+    setTodo({ ...todo, title: "", description: "", text: "", id: "" });
   };
 
   return (

@@ -5,4 +5,10 @@ export default {
     "^.+\\.tsx?$": ["ts-jest", {}],
   },
   setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+  globals: {
+    "ts-jest": {
+      tsconfig: "tsconfig.test.json",
+    },
+  },
+  moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };

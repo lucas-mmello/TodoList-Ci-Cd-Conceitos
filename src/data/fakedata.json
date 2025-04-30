@@ -1,0 +1,16 @@
+{
+  "titulos": [
+    "Estudar React",
+    "Fazer exercícios",
+    "Revisar código",
+    "Ler documentação"
+  ],
+  "descricoes": ["Importante", "Urgente", "Opcional", "Para depois"],
+  "textos": [
+    "Texto exemplo 1",
+    "Texto exemplo 2",
+    "Texto exemplo 3",
+    "Texto exemplo 4"
+  ],
+  "completed": [true, false]
+}
