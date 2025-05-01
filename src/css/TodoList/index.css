@@ -1,6 +1,6 @@
 .todo-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 1.5rem;
   padding: 0;
   list-style: none;
@@ -9,27 +9,15 @@
   max-width: 1200px;
 }
 
-@media (min-width: 600px) {
-  .todo-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media (min-width: 900px) {
-  .todo-list {
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-
 .todo-item {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
-  gap: 0.5rem;
-  justify-content: center;
-  border-radius: 10px;
-  padding: 1rem;
+  justify-content: space-between;
   background: var(--cor-fundo-todo);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  min-height: 320px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   transition: background 0.3s;
 }
@@ -78,14 +66,43 @@ input[type="checkbox"] {
   cursor: pointer;
 }
 
+.todo-text {
+  margin-top: 0.5rem;
+}
+
+.truncado {
+  display: -webkit-box;
+  line-clamp: 4;
+  box-orient: vertical;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ler-mais-btn {
+  background: transparent;
+  color: var(--cor-botao);
+  text-decoration: underline;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
 p {
   margin: 0.5rem 0 0;
   font-size: 0.95rem;
   color: var(--cor-contador);
 }
 
+.botoes-acao {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .remove-btn {
-  margin-top: 1rem;
   background-color: var(--cor-remove);
   color: white;
   border: none;
