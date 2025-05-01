@@ -49,4 +49,8 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          VITE_ENABLE_FAKE_TODOS: ${{ secrets.VITE_ENABLE_FAKE_TODOS }}
+          VITE_MINIMO_TAREFAS: ${{ secrets.VITE_MINIMO_TAREFAS }}
+          VITE_SITE_NAME: ${{ secrets.VITE_SITE_NAME }}
+          VITE_ENVIRONMENT: ${{ secrets.VITE_ENVIRONMENT }}
         run: netlify deploy --prod --dir=dist
