@@ -4,7 +4,7 @@ export default class Api {
   static async gerarTarefas(input: string) {
     try {
       const resposta = await fetch(
-        `${import.meta.env.VITE_API_URL}api/gerar-tarefas`,
+        `${import.meta.env.VITE_API_URL}.netlify/functions/gerar-tarefas`,
         {
           method: "POST",
           headers: {
