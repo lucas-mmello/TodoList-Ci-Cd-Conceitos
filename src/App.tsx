@@ -5,6 +5,7 @@ import "./App.css";
 import useTodos from "./hooks/useTodos";
 import ThemeSwitch from "./components/ThemeSwitch";
 import TodoApiService from "./services/TodoApiService";
+import AssistenteAi from "./bot/components/AssistenteAi";
 
 function App() {
   const {
@@ -68,6 +69,7 @@ function App() {
           onEdit={editTodo}
         />
       </section>
+      <AssistenteAi />
     </main>
   );
 }
