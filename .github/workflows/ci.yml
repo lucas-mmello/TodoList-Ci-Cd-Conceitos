@@ -45,6 +45,7 @@ jobs:
           VITE_MINIMO_TAREFAS: ${{ secrets.VITE_MINIMO_TAREFAS }}
           VITE_SITE_NAME: ${{ secrets.VITE_SITE_NAME }}
           VITE_ENVIRONMENT: ${{ secrets.VITE_ENVIRONMENT }}
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
         run: npm run build
 
       - name: Instalar Netlify CLI
